@@ -1,0 +1,86 @@
+{
+  "export_info": {
+    "timestamp": "2025-07-26T06:10:02.267192",
+    "total_records": 4
+  },
+  "summary": {
+    "total_users": 4,
+    "active_subscriptions": 2,
+    "expired_subscriptions": 0,
+    "canceled_subscriptions": 0,
+    "trialing_subscriptions": 2,
+    "past_due_subscriptions": 0,
+    "no_subscriptions": 0,
+    "claimed_trials": 4
+  },
+  "users": [
+    {
+      "user_id": "f79672c5-8f18-4517-bd43-112fa89c3e1c",
+      "name": "Mouhamed Wassim Mbarek",
+      "email": "medwassimmbarek@gmail.com",
+      "google_id": "111554150944579767738",
+      "has_claimed_trial": true,
+      "stripe_customer_id": "cus_SkSPwjiZMA1RV5",
+      "user_created_at": "2025-07-26T02:01:50.664545+00:00",
+      "subscription_id": "be6c9c8d-6ed9-42a7-80b3-2865a41288d6",
+      "subscription_status": "active",
+      "original_status": "active",
+      "stripe_subscription_id": "sub_1RoxUODFNKqn3RMGxcZh2bFj",
+      "current_period_start": "2025-07-26T02:05:32+00:00",
+      "current_period_end": "2025-08-26T02:05:32+00:00",
+      "trial_end": null,
+      "subscription_created_at": "2025-07-26T02:05:34.478357+00:00"
+    },
+    {
+      "user_id": "d809995a-0013-449d-a371-1a9201521619",
+      "name": "Abdulaziz Azizov",
+      "email": "olimjonazizov2598@gmail.com",
+      "google_id": "111481017991660664645",
+      "has_claimed_trial": true,
+      "stripe_customer_id": null,
+      "user_created_at": "2025-07-26T04:50:16.341044+00:00",
+      "subscription_id": "ad7b05b2-1a9b-42a0-a747-528f6937548a",
+      "subscription_status": "trialing",
+      "original_status": "trialing",
+      "stripe_subscription_id": "trial_d809995a-0013-449d-a371-1a9201521619",
+      "current_period_start": "2025-07-26T04:50:17.985+00:00",
+      "current_period_end": "2025-08-09T04:50:17.985+00:00",
+      "trial_end": "2025-08-09T04:50:17.985+00:00",
+      "subscription_created_at": "2025-07-26T04:50:18.152625+00:00"
+    },
+    {
+      "user_id": "73d6366a-acb1-46af-b477-916c3640d59a",
+      "name": "forssa",
+      "email": "forssa.app123@gmail.com",
+      "google_id": "117740484910999308406",
+      "has_claimed_trial": true,
+      "stripe_customer_id": null,
+      "user_created_at": "2025-07-26T04:57:12.15333+00:00",
+      "subscription_id": "00335996-19c7-4d66-8fd2-9b80f08ba055",
+      "subscription_status": "trialing",
+      "original_status": "trialing",
+      "stripe_subscription_id": "trial_73d6366a-acb1-46af-b477-916c3640d59a",
+      "current_period_start": "2025-07-26T04:57:14.026+00:00",
+      "current_period_end": "2025-08-09T04:57:14.026+00:00",
+      "trial_end": "2025-08-09T04:57:14.026+00:00",
+      "subscription_created_at": "2025-07-26T04:57:14.281172+00:00"
+    },
+    {
+      "user_id": "5b48dfb7-1a7b-45be-ab6f-35ba68155cba",
+      "name": "Mr Pro",
+      "email": "mouhamedwassouma@gmail.com",
+      "google_id": "116242264819706759374",
+      "has_claimed_trial": true,
+      "stripe_customer_id": "cus_SkSKGtWBNwYo5j",
+      "user_created_at": "2025-07-26T01:48:31.71397+00:00",
+      "subscription_id": "8da2fdb6-f173-4659-be7a-b5aa267819ab",
+      "subscription_status": "active",
+      "original_status": "active",
+      "stripe_subscription_id": "sub_1RoxQCDFNKqn3RMGwz8W2Bux",
+      "current_period_start": "2025-07-26T02:01:12+00:00",
+      "current_period_end": "2025-08-26T02:01:12+00:00",
+      "trial_end": null,
+      "subscription_created_at": "2025-07-26T02:01:13.982175+00:00"
+    }
+  ]
+}

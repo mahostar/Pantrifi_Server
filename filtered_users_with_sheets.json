@@ -1,0 +1,23 @@
+{
+  "filtered_users_count": 1,
+  "users_with_sheets_or_csv": [
+    {
+      "user_id": "5b48dfb7-1a7b-45be-ab6f-35ba68155cba",
+      "name": "Mr Pro",
+      "email": "mouhamedwassouma@gmail.com",
+      "google_sheets_urls": [],
+      "csv_file_urls": [
+        {
+          "file_name": "restaurant_inventory.csv",
+          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/csv/5b48dfb7-1a7b-45be-ab6f-35ba68155cba_1753506536405.csv"
+        }
+      ],
+      "menu_file_urls": [
+        {
+          "file_name": "rest.pdf",
+          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/menu/5b48dfb7-1a7b-45be-ab6f-35ba68155cba_1753506514610.pdf"
+        }
+      ]
+    }
+  ]
+}

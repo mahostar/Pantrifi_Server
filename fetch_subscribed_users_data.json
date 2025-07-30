@@ -1,0 +1,112 @@
+{
+  "export_info": {
+    "timestamp": "2025-07-26T06:10:04.161173",
+    "source_file": "extract_users_subscriptions.json",
+    "total_subscribed_users": 4
+  },
+  "summary": {
+    "total_subscribed_users": 4,
+    "active_subscriptions": 2,
+    "trialing_subscriptions": 2,
+    "total_google_sheets": 0,
+    "users_with_sheets": 0,
+    "users_without_sheets": 4,
+    "total_menu_files": 1,
+    "users_with_menus": 1,
+    "users_without_menus": 3,
+    "total_csv_files": 1,
+    "users_with_csv": 1,
+    "users_without_csv": 3,
+    "users_with_data": 1,
+    "setup_status": {
+      "fully_setup": 1,
+      "need_menu_only": 0,
+      "need_data_only": 0,
+      "need_both": 3
+    }
+  },
+  "subscribed_users": [
+    {
+      "user_id": "f79672c5-8f18-4517-bd43-112fa89c3e1c",
+      "name": "Mouhamed Wassim Mbarek",
+      "email": "medwassimmbarek@gmail.com",
+      "subscription_status": "active",
+      "current_period_start": "2025-07-26T02:05:32+00:00",
+      "current_period_end": "2025-08-26T02:05:32+00:00",
+      "trial_end": null,
+      "user_created_at": "2025-07-26T02:01:50.664545+00:00",
+      "google_sheets": [],
+      "menu_files": [],
+      "csv_files": [],
+      "sheets_count": 0,
+      "menus_count": 0,
+      "csv_count": 0,
+      "notes": "Please upload your menu and your inventory items in the AI memories section."
+    },
+    {
+      "user_id": "d809995a-0013-449d-a371-1a9201521619",
+      "name": "Abdulaziz Azizov",
+      "email": "olimjonazizov2598@gmail.com",
+      "subscription_status": "trialing",
+      "current_period_start": "2025-07-26T04:50:17.985+00:00",
+      "current_period_end": "2025-08-09T04:50:17.985+00:00",
+      "trial_end": "2025-08-09T04:50:17.985+00:00",
+      "user_created_at": "2025-07-26T04:50:16.341044+00:00",
+      "google_sheets": [],
+      "menu_files": [],
+      "csv_files": [],
+      "sheets_count": 0,
+      "menus_count": 0,
+      "csv_count": 0,
+      "notes": "Please upload your menu and your inventory items in the AI memories section."
+    },
+    {
+      "user_id": "73d6366a-acb1-46af-b477-916c3640d59a",
+      "name": "forssa",
+      "email": "forssa.app123@gmail.com",
+      "subscription_status": "trialing",
+      "current_period_start": "2025-07-26T04:57:14.026+00:00",
+      "current_period_end": "2025-08-09T04:57:14.026+00:00",
+      "trial_end": "2025-08-09T04:57:14.026+00:00",
+      "user_created_at": "2025-07-26T04:57:12.15333+00:00",
+      "google_sheets": [],
+      "menu_files": [],
+      "csv_files": [],
+      "sheets_count": 0,
+      "menus_count": 0,
+      "csv_count": 0,
+      "notes": "Please upload your menu and your inventory items in the AI memories section."
+    },
+    {
+      "user_id": "5b48dfb7-1a7b-45be-ab6f-35ba68155cba",
+      "name": "Mr Pro",
+      "email": "mouhamedwassouma@gmail.com",
+      "subscription_status": "active",
+      "current_period_start": "2025-07-26T02:01:12+00:00",
+      "current_period_end": "2025-08-26T02:01:12+00:00",
+      "trial_end": null,
+      "user_created_at": "2025-07-26T01:48:31.71397+00:00",
+      "google_sheets": [],
+      "menu_files": [
+        {
+          "menu_id": "d2e79422-fd6e-4f6d-a377-a33fda75cd73",
+          "file_name": "rest.pdf",
+          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/menu/5b48dfb7-1a7b-45be-ab6f-35ba68155cba_1753506514610.pdf"
+        }
+      ],
+      "csv_files": [
+        {
+          "csv_id": "ae94f7b1-dfed-49ca-8ed7-9308414eaef1",
+          "file_name": "restaurant_inventory.csv",
+          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/csv/5b48dfb7-1a7b-45be-ab6f-35ba68155cba_1753506536405.csv",
+          "created_at": "",
+          "updated_at": ""
+        }
+      ],
+      "sheets_count": 0,
+      "menus_count": 1,
+      "csv_count": 1,
+      "notes": "Great! You have uploaded both your menu and inventory data. The AI can now provide comprehensive suggestions and alerts."
+    }
+  ]
+}
