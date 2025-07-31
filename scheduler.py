@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import subprocess
+import json
 from datetime import datetime, timedelta
 from typing import Optional
 import signal
@@ -10,7 +11,6 @@ from pathlib import Path
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from rich.prompt import Prompt, IntPrompt
 from rich.text import Text
 from rich.live import Live
 from rich import box
@@ -28,6 +28,7 @@ class PantrifiScheduler:
             "ai_pipeline_workflow.py"
         ]
         self.base_path = Path(__file__).resolve().parent
+        self.config_file = self.base_path / "schedule_config.json"
         
         # Setup a signal handler for graceful shutdown on non-Windows systems or programmatic termination
         signal.signal(signal.SIGTERM, self.signal_handler)
@@ -37,115 +38,49 @@ class PantrifiScheduler:
         self.console.print("\n🛑 [red]Termination signal received. Exiting gracefully...[/red]")
         self.running = False
     
-    def display_current_time(self):
-        """Display current system time with rich formatting."""
-        current_time = datetime.now()
-        
-        time_table = Table(show_header=False, box=box.ROUNDED, expand=False)
-        time_table.add_column("Info", style="cyan", width=20)
-        time_table.add_column("Value", style="bright_white", width=30)
-        
-        time_table.add_row("🕐 Current Date", current_time.strftime("%A, %B %d, %Y"))
-        time_table.add_row("⏰ Current Time", current_time.strftime("%I:%M:%S %p"))
-        time_table.add_row("🌍 24-Hour Format", current_time.strftime("%H:%M:%S"))
-        
-        panel = Panel(
-            time_table,
-            title="[bold blue]🕒 System Time Information[/bold blue]",
-            border_style="blue"
-        )
-        
-        self.console.print(panel)
-    
-    def get_time_input(self) -> Optional[datetime]:
-        """Interactive time selection with rich interface."""
-        self.console.print("\n[bold yellow]⏰ Set Your Daily Trigger Time[/bold yellow]")
-        
-        format_table = Table(show_header=False, box=box.SIMPLE, padding=(0, 1))
-        format_table.add_column("Option", style="cyan")
-        format_table.add_column("Description", style="white")
-        format_table.add_row("1", "12-hour format (e.g., 7:30 AM)")
-        format_table.add_row("2", "24-hour format (e.g., 07:30)")
-        
-        self.console.print(Panel(format_table, title="Time Format Options", border_style="green"))
-        
-        try:
-            format_choice = IntPrompt.ask(
-                "[bold green]Choose time format[/bold green]",
-                choices=["1", "2"],
-                default=1
-            )
-        except KeyboardInterrupt:
-            self.console.print("\n[red]Operation cancelled.[/red]")
+    def load_schedule_config(self) -> Optional[datetime]:
+        """Load the scheduled time from the JSON configuration file."""
+        if not self.config_file.exists():
+            self.console.print(f"[bold red]❌ Configuration file not found: {self.config_file}[/bold red]")
+            self.console.print("[yellow]Please run 'python schedule_config.py' first to set up the schedule.[/yellow]")
             return None
         
-        if format_choice == 1:
-            return self._get_12_hour_time()
-        else:
-            return self._get_24_hour_time()
-    
-    def _get_time_from_user(self, is_12_hour: bool) -> Optional[datetime]:
-        """A unified function to get time input from the user."""
-        prompt_style = "12-hour" if is_12_hour else "24-hour"
-        self.console.print(f"\n[bold cyan]📝 Enter time in {prompt_style} format[/bold cyan]")
-        
-        while self.running:
-            try:
-                if is_12_hour:
-                    hour = IntPrompt.ask("[green]Hour (1-12)[/green]", choices=[str(i) for i in range(1, 13)])
-                else:
-                    hour = IntPrompt.ask("[green]Hour (0-23)[/green]", choices=[str(i) for i in range(0, 24)])
-                
-                minute = IntPrompt.ask("[green]Minute (0-59)[/green]", choices=[str(i) for i in range(0, 60)], default=0)
-                
-                hour_24, display_time = hour, f"{hour:02d}:{minute:02d}"
-
-                if is_12_hour:
-                    period_choice = IntPrompt.ask("[green]Select period (1 for AM, 2 for PM)[/green]", choices=["1", "2"])
-                    period = "AM" if period_choice == 1 else "PM"
-                    display_time = f"{hour}:{minute:02d} {period}"
-                    
-                    if period == "AM" and hour == 12: hour_24 = 0
-                    elif period == "PM" and hour != 12: hour_24 = hour + 12
-                    else: hour_24 = hour
-
-                now = datetime.now()
-                scheduled_time = now.replace(hour=hour_24, minute=minute, second=0, microsecond=0)
-                
-                if scheduled_time <= now:
-                    scheduled_time += timedelta(days=1)
-                
-                self._confirm_time_selection(scheduled_time, display_time)
-                return scheduled_time
-                
-            except KeyboardInterrupt:
-                self.console.print("\n[red]Operation cancelled.[/red]")
-                return None
-            except Exception as e:
-                self.console.print(f"[red]Invalid input: {e}. Please try again.[/red]")
-        return None
-
-    def _get_12_hour_time(self) -> Optional[datetime]:
-        return self._get_time_from_user(is_12_hour=True)
-
-    def _get_24_hour_time(self) -> Optional[datetime]:
-        return self._get_time_from_user(is_12_hour=False)
-
-    def _confirm_time_selection(self, scheduled_time: datetime, display_time: str):
-        """Confirm the selected time with the user."""
-        confirmation_table = Table(show_header=False, box=box.ROUNDED)
-        confirmation_table.add_column("Detail", style="cyan", no_wrap=True)
-        confirmation_table.add_column("Value", style="bright_white")
-        
-        confirmation_table.add_row("⏰ Selected Time", display_time)
-        confirmation_table.add_row("📅 Next Execution", scheduled_time.strftime("%A, %B %d, %Y at %I:%M %p"))
-        
-        panel = Panel(
-            confirmation_table,
-            title="[bold green]✅ Time Confirmation[/bold green]",
-            border_style="green"
-        )
-        self.console.print(panel)
+        try:
+            with open(self.config_file, 'r', encoding='utf-8') as f:
+                config_data = json.load(f)
+            
+            hour = config_data['scheduled_hour']
+            minute = config_data['scheduled_minute']
+            
+            now = datetime.now()
+            scheduled_time = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+            
+            # If the time has already passed today, schedule for tomorrow
+            if scheduled_time <= now:
+                scheduled_time += timedelta(days=1)
+            
+            # Display loaded configuration
+            config_table = Table(show_header=False, box=box.ROUNDED)
+            config_table.add_column("Setting", style="cyan")
+            config_table.add_column("Value", style="bright_white")
+            
+            config_table.add_row("⏰ Scheduled Time", f"{hour:02d}:{minute:02d}")
+            config_table.add_row("📅 Next Execution", scheduled_time.strftime("%A, %B %d, %Y at %I:%M %p"))
+            config_table.add_row("📝 Config Updated", config_data.get('last_updated', 'Unknown'))
+            
+            panel = Panel(
+                config_table,
+                title="[bold green]📋 Loaded Schedule Configuration[/bold green]",
+                border_style="green"
+            )
+            self.console.print(panel)
+            
+            return scheduled_time
+            
+        except Exception as e:
+            self.console.print(f"[bold red]❌ Error loading configuration: {e}[/bold red]")
+            self.console.print("[yellow]Please run 'python schedule_config.py' to fix the configuration.[/yellow]")
+            return None
     
     def _get_time_until(self, target_time: datetime) -> str:
         """Calculate and format the time remaining until a target time."""
@@ -308,11 +243,9 @@ class PantrifiScheduler:
             welcome_text = Text("🍽️ PANTRIFI SCHEDULER 🍽️", style="bold magenta")
             self.console.print(Panel(Align.center(welcome_text), box=box.DOUBLE, border_style="magenta"))
             
-            self.display_current_time()
-            
-            scheduled_time = self.get_time_input()
+            scheduled_time = self.load_schedule_config()
             if scheduled_time is None or not self.running:
-                self.console.print("[yellow]No time scheduled. Exiting.[/yellow]")
+                self.console.print("[yellow]No valid schedule configuration found. Exiting.[/yellow]")
                 return
             
             self.scheduled_time = scheduled_time

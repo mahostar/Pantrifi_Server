@@ -1,0 +1,30 @@
+[Unit]
+Description=Pantrifi Scheduler Service
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+Group=YOUR_USERNAME
+WorkingDirectory=/path/to/your/pantrifi_server
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=PYTHONPATH=/path/to/your/pantrifi_server
+Environment=PYTHONUTF8=1
+ExecStart=/usr/bin/python3 /path/to/your/pantrifi_server/scheduler.py
+Restart=always
+RestartSec=10
+KillMode=process
+TimeoutStopSec=30
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pantrifi-scheduler
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/path/to/your/pantrifi_server
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

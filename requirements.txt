@@ -4,5 +4,6 @@ python-dotenv
 google-genai
 PyPDF2
 ntplib
-supabase==2.3.4
-rich==13.7.0
+supabase
+rich
+sendgrid
