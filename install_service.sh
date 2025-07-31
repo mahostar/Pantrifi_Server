@@ -63,7 +63,7 @@ WorkingDirectory=$CURRENT_DIR
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=PYTHONPATH=$CURRENT_DIR
 Environment=PYTHONUTF8=1
-ExecStart=/usr/bin/python3 $CURRENT_DIR/scheduler.py
+ExecStart=/bin/bash -c 'source $CURRENT_DIR/venv/bin/activate && python3 $CURRENT_DIR/scheduler.py'
 Restart=always
 RestartSec=10
 KillMode=process
