@@ -2,20 +2,17 @@
   "filtered_users_count": 1,
   "users_with_sheets_or_csv": [
     {
-      "user_id": "5b48dfb7-1a7b-45be-ab6f-35ba68155cba",
-      "name": "Mr Pro",
-      "email": "mouhamedwassouma@gmail.com",
-      "google_sheets_urls": [],
-      "csv_file_urls": [
-        {
-          "file_name": "restaurant_inventory.csv",
-          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/csv/5b48dfb7-1a7b-45be-ab6f-35ba68155cba_1753506536405.csv"
-        }
+      "user_id": "321ae177-c53d-4c5e-8196-0297eb2b250b",
+      "name": "ziri",
+      "email": "zirihalo@gmail.com",
+      "google_sheets_urls": [
+        "https://docs.google.com/spreadsheets/d/1NJ-jw_9n-4nYdWp1m6-1fYdIlATOZVsjMArq3y8OxYE/edit?usp=sharing"
       ],
+      "csv_file_urls": [],
       "menu_file_urls": [
         {
-          "file_name": "rest.pdf",
-          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/menu/5b48dfb7-1a7b-45be-ab6f-35ba68155cba_1753506514610.pdf"
+          "file_name": "LECAFE-menu.pdf",
+          "file_url": "https://xlbcveynpeemeclxxczi.supabase.co/storage/v1/object/public/menu/321ae177-c53d-4c5e-8196-0297eb2b250b_1753840500281.pdf"
         }
       ]
     }

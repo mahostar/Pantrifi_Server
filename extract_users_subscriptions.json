@@ -1,19 +1,53 @@
 {
   "export_info": {
-    "timestamp": "2025-07-26T06:10:02.267192",
-    "total_records": 4
+    "timestamp": "2025-07-30T21:29:03.036041",
+    "total_records": 8
   },
   "summary": {
-    "total_users": 4,
-    "active_subscriptions": 2,
+    "total_users": 8,
+    "active_subscriptions": 3,
     "expired_subscriptions": 0,
     "canceled_subscriptions": 0,
-    "trialing_subscriptions": 2,
+    "trialing_subscriptions": 5,
     "past_due_subscriptions": 0,
     "no_subscriptions": 0,
-    "claimed_trials": 4
+    "claimed_trials": 8
   },
   "users": [
+    {
+      "user_id": "382b4c0e-66dc-4f4f-9c95-bf113a5b0b7a",
+      "name": "Ducale Abdi",
+      "email": "dualea711@gmail.com",
+      "google_id": "101951188698140288201",
+      "has_claimed_trial": true,
+      "stripe_customer_id": null,
+      "user_created_at": "2025-07-27T02:06:04.586149+00:00",
+      "subscription_id": "ce7499d1-b8b8-4a5c-b2b6-47debf51b452",
+      "subscription_status": "trialing",
+      "original_status": "trialing",
+      "stripe_subscription_id": "trial_382b4c0e-66dc-4f4f-9c95-bf113a5b0b7a",
+      "current_period_start": "2025-07-27T02:06:06.241+00:00",
+      "current_period_end": "2025-08-10T02:06:06.241+00:00",
+      "trial_end": "2025-08-10T02:06:06.241+00:00",
+      "subscription_created_at": "2025-07-27T02:06:06.419557+00:00"
+    },
+    {
+      "user_id": "13c987ee-262a-49b9-bb50-6f739fdfe575",
+      "name": "mouhamed wassim",
+      "email": "mahoufortech@gmail.com",
+      "google_id": "113391999134769297243",
+      "has_claimed_trial": true,
+      "stripe_customer_id": null,
+      "user_created_at": "2025-07-27T05:04:59.20682+00:00",
+      "subscription_id": "515bb173-1344-492f-95ad-dd2ce0df61e9",
+      "subscription_status": "trialing",
+      "original_status": "trialing",
+      "stripe_subscription_id": "trial_13c987ee-262a-49b9-bb50-6f739fdfe575",
+      "current_period_start": "2025-07-27T05:05:01.422+00:00",
+      "current_period_end": "2025-08-10T05:05:01.422+00:00",
+      "trial_end": "2025-08-10T05:05:01.422+00:00",
+      "subscription_created_at": "2025-07-27T05:05:01.681006+00:00"
+    },
     {
       "user_id": "f79672c5-8f18-4517-bd43-112fa89c3e1c",
       "name": "Mouhamed Wassim Mbarek",
@@ -30,6 +64,23 @@
       "current_period_end": "2025-08-26T02:05:32+00:00",
       "trial_end": null,
       "subscription_created_at": "2025-07-26T02:05:34.478357+00:00"
+    },
+    {
+      "user_id": "506cfbd5-52c1-4687-9b6f-81354d059a78",
+      "name": "Wasim Mbarek",
+      "email": "wasim.mbarek@gmail.com",
+      "google_id": "105456705937545990596",
+      "has_claimed_trial": true,
+      "stripe_customer_id": null,
+      "user_created_at": "2025-07-26T19:45:34.515301+00:00",
+      "subscription_id": "262cafcc-1705-46a3-a253-8b3128aaf48e",
+      "subscription_status": "trialing",
+      "original_status": "trialing",
+      "stripe_subscription_id": "trial_506cfbd5-52c1-4687-9b6f-81354d059a78",
+      "current_period_start": "2025-07-26T19:45:36.694+00:00",
+      "current_period_end": "2025-08-09T19:45:36.694+00:00",
+      "trial_end": "2025-08-09T19:45:36.694+00:00",
+      "subscription_created_at": "2025-07-26T19:45:36.761097+00:00"
     },
     {
       "user_id": "d809995a-0013-449d-a371-1a9201521619",
@@ -81,6 +132,23 @@
       "current_period_end": "2025-08-26T02:01:12+00:00",
       "trial_end": null,
       "subscription_created_at": "2025-07-26T02:01:13.982175+00:00"
+    },
+    {
+      "user_id": "321ae177-c53d-4c5e-8196-0297eb2b250b",
+      "name": "ziri",
+      "email": "zirihalo@gmail.com",
+      "google_id": "109093571115461769720",
+      "has_claimed_trial": true,
+      "stripe_customer_id": "cus_SlvT86hF976ioK",
+      "user_created_at": "2025-07-26T20:38:42.151933+00:00",
+      "subscription_id": "b3fef961-31ed-4642-bb80-e93fdcd9a5ea",
+      "subscription_status": "active",
+      "original_status": "active",
+      "stripe_subscription_id": "sub_1RqNczDSRMSm8XAMbM8cfF6P",
+      "current_period_start": "2025-07-30T00:12:17+00:00",
+      "current_period_end": "2025-08-30T00:12:17+00:00",
+      "trial_end": null,
+      "subscription_created_at": "2025-07-30T00:12:18.795797+00:00"
     }
   ]
 }
